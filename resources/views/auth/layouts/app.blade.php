@@ -32,6 +32,13 @@
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('public/admin/images/gpus-logo.png')}}"  />
 
+    <style>
+      i{
+        font-size: 24px;
+      }
+    </style>
+
+
     @stack('css')
   </head>
 

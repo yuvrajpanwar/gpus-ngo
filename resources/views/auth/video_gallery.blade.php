@@ -2,7 +2,21 @@
 
 
 @push('css')
-  
+  <style>
+    td{
+      text-align: center;
+      font-weight: bold; 
+      color: #4B49AC; 
+    }
+    th{
+      text-align: center;
+    }
+    .table-container {
+        width: 100%;            
+        overflow-x: auto;      
+        white-space: nowrap;    
+    }
+  </style>
 @endpush
 
 @section('main-content')
@@ -16,29 +30,23 @@
       </div>
 
       <div class="row">
-        <div class= "container">
-          <table id="table" class="table table-bordered">
+        <div class= "container table-container">
+          <table id="table" class="table table-bordered ">
             <thead>
-              <th>Gallery Title</th>
-              <th>Display</th>
+              <th>Video Title</th>
+              <th>Link / Description</th>
               <th>Action</th>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>2</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>f</td>
-                <td>r</td>
-                <td>f</td>
-              </tr>
+
+              @foreach ($videos as $video)
+                <tr>
+                  <td>{{$video->main_title}}</td>
+                  <td >{{$video->description}}<br><br><a href="{{$video->link}}">{{$video->link}}</a></td>                  
+                  <td><i class="ti-pencil-alt menu-icon text-primary pr-2"></i> <i class="ti-trash menu-icon text-danger"></i></td>
+                </tr>    
+              @endforeach
+
             </tbody>
           </table>
         </div>

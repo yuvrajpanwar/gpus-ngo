@@ -3,9 +3,22 @@
 
 @push('css')
   <style>
-    i{
-      font-size: 24px;
-    }
+    .img-card{
+                overflow: hidden;
+                height:100px;
+                width:100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 5px;
+            }
+            .img
+            {
+                width: 100%;
+                height:100%;
+                object-fit: cover;
+                object-position: center;
+            }
   </style>
 @endpush
 
@@ -15,7 +28,7 @@
     <div class="content-wrapper">
       <div class="row">
         <div class="col-md-12 grid-margin text-primary">
-          <h3 class="text-center">Gallery Listing</h3>
+          <h3 class="text-center">Image List for {{$gallery_name}}</h3>
         </div>
       </div>
 
@@ -23,11 +36,11 @@
 
         @foreach ($images as $item)
             <div class="col-md-2 m-3 border bg-secondary">
-                <div style="width: 100px; height: 100px; overflow: hidden; text-align: center;">
-                    <img src="{{ asset('public/gallery/fullscreen')}}/{{extract_image_name($item->image)}}" style="max-width: 100%; max-height: 100%; vertical-align: middle;">
+                <div class="img-card">
+                    <img src="{{ asset('public/gallery/fullscreen')}}/{{extract_image_name($item->image)}}" class="img">
                 </div>
                 <div>
-                    <p>this is card content</p>
+                    <p class="text-center mt-2"><a class="mr-4" href="#">(Hide)</a><a href="#">(Delete)</a></p>
                 </div>
             </div>
         
