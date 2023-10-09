@@ -62,7 +62,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            // 'model' => App\Models\User::class,
+
+            'model' => App\Models\gpus_admin_login::class,
+
+
         ],
 
         // 'users' => [
